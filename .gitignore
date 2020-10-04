@@ -42,7 +42,7 @@ frontend/jspm_packages/
 frontend/typings/
 
 # Optional npm cache directory
-.npm
+frontend/.npm
 
 # Optional eslint cache
 frontend/.eslintcache
@@ -88,3 +88,31 @@ frontend/.DS_Store
 
 # Vim swap files
 frontend/*.swp
+
+
+# data folder
+# Ignore everything
+#######################################
+server/neo4j/data/**
+# except directories with .gitkeep...
+!server/neo4j/.gitkeep
+!server/neo4j/**/.gitkeep
+# ...even if they are in subdirectories
+# !*
+
+# gqlgen generated files
+server/generated.go
+server/models_gen.go
+
+# Misc
+server/vendor/
+server/.DS_Store
+server/mocks/
+server/*.gz
+server/*.bak
+server/*.log
+server/*.jar
+
+# Editors
+server/\.vscode/
+server/.idea

@@ -1,0 +1,39 @@
+schema:
+  - app/graph/*.graphqls
+
+exec:
+  filename: app/graph/generated/generated.go
+  package: generated
+
+skip_validation: true
+
+model:
+  filename: app/graph/model/models_gen.go
+  package: model
+
+resolver:
+  layout: follow-schema
+  dir: app/graph
+  package: graph
+
+autobind:
+  - "github.com/Pranjalya/nuxt-go-neo4j-starter/server/app/graph/model"
+
+models:
+  Movie:
+    model:
+      - github.com/Pranjalya/nuxt-go-neo4j-starter/server/app/models.Movie
+    fields:
+      directors:
+        resolver: true
+      writers:
+        resolver: true
+      cast:
+        resolver: true
+  
+  Person:
+    model:
+      - github.com/Pranjalya/nuxt-go-neo4j-starter/server/app/models.Person
+    fields:
+      participated:
+        resolver: true
