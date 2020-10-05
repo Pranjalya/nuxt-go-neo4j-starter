@@ -28,7 +28,7 @@ You just need to install [Docker](https://docs.docker.com/get-docker/) and [Dock
 
 1 - Clone this repo
 ```bash
-git clone https://github.com/charlysan/pyrfidhid.git
+git clone https://github.com/Pranjalya/nuxt-go-neo4j-starter.git
 ```
 
 2 - Build app docker image
@@ -81,7 +81,7 @@ docker-compose exec neo4j /bin/bash -c 'cat /var/lib/neo4j/import/movies.cypher 
 
 That's all. You should be able to login to Neo4j browser at [http://127.0.0.1:7474/browser/](http://127.0.0.1:7474/browser/)
 
-Use the default **credentials** set in [dockercompose.yml file](./dockercompose.yml)
+Use the default **credentials** set in [docker-compose.yml file](./docker-compose.yml)
 ```
 user: neo4j
 pass: test
