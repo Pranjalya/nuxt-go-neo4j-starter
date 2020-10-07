@@ -42,12 +42,30 @@ export default {
   ],
 
   // Axios module configuration (https://go.nuxtjs.dev/config-axios)
-  axios: {},
+  axios: {
+    baseURL: 'http://localhost:8080',
+    // headers: {
+    //   "Content-type": "application/json",
+    //   "Accept": "application/json"
+    // }
+  },
 
   // Content module configuration (https://go.nuxtjs.dev/content-config)
   content: {},
 
   // Build Configuration (https://go.nuxtjs.dev/config-build)
   build: {
-  }
+  },
+
+  publicRuntimeConfig: {
+    axios: {
+      browserBaseURL: process.env.BROWSER_BASE_URL
+    }
+  },
+
+  privateRuntimeConfig: {
+    axios: {
+      baseURL: process.env.BASE_URL
+    }
+  },
 }

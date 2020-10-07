@@ -13,6 +13,7 @@ import (
 	"github.com/Pranjalya/nuxt-go-neo4j-starter/server/app/service"
 	"github.com/Pranjalya/nuxt-go-neo4j-starter/server/pkg/logger"
 	"github.com/gorilla/mux"
+	"github.com/rs/cors"
 	"github.com/spf13/viper"
 )
 
@@ -62,6 +63,13 @@ func (a *App) Run() {
 // InitRoutes initializing all the routes
 func (a *App) InitRoutes() {
 	a.Router = mux.NewRouter()
+
+	a.Router.Use(cors.New(cors.Options{
+		// AllowedOrigins:   []string{"http://localhost:" + defaultPort},
+		AllowedOrigins:   []string{"*"},
+		AllowCredentials: true,
+		Debug:            true,
+	}).Handler)
 
 	srv := handler.NewDefaultServer(generated.NewExecutableSchema(generated.Config{Resolvers: &graph.Resolver{Service: a.Service}}))
 	a.Router.Handle("/playground", playground.Handler("GoNeo4jGql GraphQL playground", "/movies"))
