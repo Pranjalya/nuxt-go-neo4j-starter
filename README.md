@@ -1,3 +1,3 @@
-# nuxt-go-neo4j-starter
+# Nuxt Go Neo4j stack
 
-Find out steps to start the server in `server` directory.
+A starter template for a stack which uses Nuxt.js for frontend, Golang framework as the backend and Neo4j as the database.
