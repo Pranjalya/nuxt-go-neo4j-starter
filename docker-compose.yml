@@ -24,8 +24,8 @@ services:
       - '7474:7474'
       - '7687:7687'
   app:
-    container_name: nuxttrial
-    image: nuxttrial
+    container_name: nuxttrial-server
+    image: nuxttrial-server
     build: ./server/
     networks:
       - neo4j-net
@@ -40,13 +40,11 @@ services:
       - NEO4J_USER=neo4j
       - NEO4J_PASS=test
   frontend:
-    container_name: wecare
-    image: wecare
-    build: frontend/
-    networks:
-      - neo4j-net
-    ports:
-      - '3000:3000'
+    container_name: nuxttrial-frontend
+    image: nuxttrial-frontend
+    build: ./frontend/
+    ports: 
+      - '5000:5000'
 
 networks:
   neo4j-net:

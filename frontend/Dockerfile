@@ -7,8 +7,8 @@ WORKDIR /usr/src/nuxt-app
 ENV PATH /usr/src/nuxt-app/node_modules/.bin:$PATH
 
 # update and install dependency
-RUN apk update && apk upgrade
-RUN apk add git
+# RUN apk update && apk upgrade
+# RUN apk add git
 
 # copy the app, note .dockerignore
 COPY . /usr/src/nuxt-app/
@@ -16,13 +16,14 @@ RUN yarn install
 
 # build necessary, even if no static files are needed,
 # since it builds the server as well
-RUN yarn build
+# RUN yarn build
 
 # expose 5000 on container
 EXPOSE 5000
 
 # set app serving to permissive / assigned
 ENV NUXT_HOST=0.0.0.0
+
 # set app port
 ENV NUXT_PORT=5000
 
